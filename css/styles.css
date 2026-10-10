@@ -1197,7 +1197,8 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet + Mobile header (up to ~900px) */
+@media (max-width: 900px) {
   :root {
     --header-height: 64px;
   }
@@ -1223,7 +1224,7 @@ button, input, select, textarea {
   }
 
   .nav-actions .btn-whatsapp {
-    display: none; /* hide text WhatsApp button in header on mobile */
+    display: none !important; /* hide text WhatsApp button in header on mobile/tablet */
   }
 
   .nav {
@@ -1273,7 +1274,9 @@ button, input, select, textarea {
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+}
 
+@media (max-width: 768px) {
   /* Hero */
   .hero {
     min-height: auto;
