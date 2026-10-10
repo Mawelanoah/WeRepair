@@ -17,6 +17,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // ===== Scroll to Top Button =====
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
   // ===== Mobile Navigation =====
   const navToggle = document.getElementById('nav-toggle');
   const nav = document.getElementById('nav');
@@ -68,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', function () {
       const service = btn.getAttribute('data-service');
       if (serviceSelect && service) {
-        // Map to select options
         const options = serviceSelect.options;
         for (let i = 0; i < options.length; i++) {
           if (options[i].value === service || options[i].text.includes(service.split(' ')[0])) {
@@ -95,13 +113,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const preferredDate = document.getElementById('preferred-date').value;
       const contactMethod = document.getElementById('contact-method').value;
       
-      // Validation
       if (!brand || !model || !service || !problem || !name) {
         alert('Please fill in all required fields marked with *.');
         return;
       }
       
-      // Build WhatsApp message
       let message = 'Hi WeRepair, I would like to enquire about a phone repair.\n\n';
       message += '*Name:* ' + name + '\n';
       message += '*Phone Brand:* ' + brand + '\n';
@@ -119,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const encoded = encodeURIComponent(message);
       const whatsappUrl = 'https://wa.me/27738178823?text=' + encoded;
       
-      // Open WhatsApp
       window.open(whatsappUrl, '_blank');
     });
   }
