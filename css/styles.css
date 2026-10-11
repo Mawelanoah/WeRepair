@@ -294,7 +294,7 @@ ul { list-style: none; }
 }
 .price-list .model { flex: 1; min-width: 0; }
 .price-list .price { font-weight: 700; color: var(--color-blue); white-space: nowrap; }
-.price-card .btn { margin: 0 20px 20px; }
+.price-card .btn { margin: 0 20px 24px; }
 .price-disclaimer {
   text-align: center;
   color: #777;
@@ -682,7 +682,10 @@ ul { list-style: none; }
     right: 12px;
   }
   .scroll-top {
-    bottom: 80px;
-    right: 12px;
+    bottom: 90px;
+    right: 14px;
+  }
+  .price-card .btn {
+    margin-bottom: 28px;
   }
 }
